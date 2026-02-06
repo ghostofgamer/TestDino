@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.bananaparty.yandexgames": "https://github.com/forcepusher/com.bananaparty.yandexgames.git#18.0.0",
     "com.unity.2d.animation": "13.0.4",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
