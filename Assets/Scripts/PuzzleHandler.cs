@@ -51,6 +51,7 @@ public class PuzzleHandler : MonoBehaviour
 
     
     public GameObject realAnimal;
+    
     private void Start()
     {
         realAnimal = transform.GetChild(0).gameObject;
@@ -58,6 +59,10 @@ public class PuzzleHandler : MonoBehaviour
         
         
         completePuzzle.SetActive(false);
+        
+#if  UNITY_WEBGL
+        useMouse = true;
+#endif
     }
 
     public void IncreasePiecesCount(Vector2 position)
