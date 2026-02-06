@@ -80,11 +80,6 @@ public class PuzzlePiece : MonoBehaviour
                     MouseMove();
             }
         }
-        
-        if (inRightPlace)
-        {
-            transform.position = _rightPlaceTransform.position;
-        }
     }
 
     private void OnDisable()
@@ -338,51 +333,6 @@ public class PuzzlePiece : MonoBehaviour
             _transform.position = newPosition;
             yield return null;
         }
-    }
-
-    public void ClampToScreen()
-    {
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 viewportPosition = Camera.main.ScreenToViewportPoint(screenPosition);
-
-        // Проверяем, что пазл внутри видимой области камеры
-        bool isInside =
-            viewportPosition.x >= 0 && viewportPosition.x <= 1 &&
-            viewportPosition.y >= 0 && viewportPosition.y <= 1;
-
-        if (!isInside)
-        {
-            // Если пазл за пределами экрана, перемещаем его внутрь
-            viewportPosition.x = Mathf.Clamp01(viewportPosition.x);
-            viewportPosition.y = Mathf.Clamp01(viewportPosition.y);
-
-            Vector3 newWorldPosition = Camera.main.ViewportToWorldPoint(viewportPosition);
-            newWorldPosition.z = transform.position.z; // Сохраняем Z-координату
-
-            // Плавное перемещение
-            StartCoroutine(SmoothMove(newWorldPosition));
-        }
-    }
-
-    // Корутина для плавного перемещения
-    private IEnumerator SmoothMove(Vector3 targetPosition)
-    {
-        float duration = 0.3f; // Длительность анимации
-        float elapsedTime = 0f;
-        Vector3 startPosition = transform.position;
-
-        while (elapsedTime < duration)
-        {
-            transform.position = Vector3.Lerp(
-                startPosition,
-                targetPosition,
-                elapsedTime / duration
-            );
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.position = targetPosition;
     }
 }
 
