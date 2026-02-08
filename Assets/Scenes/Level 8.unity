@@ -4626,6 +4626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1942378939}
   - component: {fileID: 1942378940}
+  - component: {fileID: 1942378941}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -4707,6 +4708,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1942378941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942378938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1daba735327f414184a89d800185937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBackgroundCover
+  overscan: 1.03
 --- !u!1 &2011696865
 GameObject:
   m_ObjectHideFlags: 0
